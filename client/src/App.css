@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+.navbar {
+  width: 100%;
+  background-color: #2185d0;
+}
+.navmenu {
+  color: #e6e6e6;
+  padding: 10px;
+}
+.nav-icon {
+  display: flex;
+  align-self: center;
+}
+.menuitem {
+  margin-right: 10px;
+}
+.menu-header {
+  display: inline-flex;
+  padding-top: 10px;
+  align-self: center;
+}
+.searchbar {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  padding: 5px 0;
+}
+.searchinput {
+  width: 95%;
+}
+/* shop-home */
+
+.shop-home {
+  background-color: #c0c5c7;
+}
+
+/* card */
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.card-content {
+  color: #e6e6e6;
+  background-color: #2185d0;
+}
+
+.card-header {
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bolder;
+}
+.card-description {
+  font-size: 15px;
+  padding: 7px;
+}
+
+.card-span {
+  color: #e6e6e6;
+  font-weight: bolder;
+}
+
+.card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.cardItembutton {
+  padding: 5px;
+  border-radius: 30px;
+}
+.card-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.viewCardContainer {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.viewCardName {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+}
+.viewCardImage {
+  margin: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+.viewCardImage img {
+  width: 100%;
+  height: 320px;
+}
+.viewCardContent {
+  margin: 10px 15px;
+}
+.view-des {
+  margin: 10px 0;
+}
+.viewCardButton {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
