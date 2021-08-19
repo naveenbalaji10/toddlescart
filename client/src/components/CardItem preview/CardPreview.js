@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
-import CartContext from "../../context/cart/CartContext";
+import React from "react";
 import { Image, Button } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
-const CardPreview = ({ history }) => {
-  const cartContext = useContext(CartContext);
-  const { current, viewItem } = cartContext;
-  const { imageURL, description, name, price } = current;
-  const addItem = () => {
+import { connect } from "react-redux";
+import { addItem } from "../../reducer/actions/actions";
+
+const CardPreview = ({ shopItem, history, addItem }) => {
+  const { imageURL, name, description, price } = shopItem;
+
+  const buttonClick = () => {
     history.push("/cart");
-    viewItem(current);
+    addItem(shopItem);
   };
   return (
     <div className="viewCardContainer">
@@ -27,14 +28,13 @@ const CardPreview = ({ history }) => {
             <p style={{ fontSize: "17px" }}>{description}</p>
           </div>
         </div>
-        <div className="viewCardButton">
+        <div className="viewCardButton" onClick={buttonClick}>
           <Button
             animated="fade"
             color="blue"
             className="viewCardBtn"
             fluid
             style={{ borderRadius: "10px" }}
-            onClick={addItem}
           >
             Add to Cart
           </Button>
@@ -43,4 +43,9 @@ const CardPreview = ({ history }) => {
     </div>
   );
 };
-export default withRouter(CardPreview);
+
+const mapStateToProps = (state) => ({
+  shopItem: state.cart.currentItem,
+});
+
+export default withRouter(connect(mapStateToProps, { addItem })(CardPreview));

@@ -1,25 +1,20 @@
-import React, { useContext } from "react";
-
+import React from "react";
 import CardItem from "../Cartitem/Carditem";
-import CartContext from "../../context/cart/CartContext";
 
-const CardItems = () => {
-  const cartContext = useContext(CartContext);
-  const { cartitems } = cartContext;
-  return (
-    <div className="itemContainer ui container">
-      <div className="cards-container ui  five doubling stackable cards ">
-        {cartitems.map((cartitem) => (
-          <div
-            className="card-preview ui fluid card"
-            key={cartitem.id}
-            style={{ margin: "40px 10px" }}
-          >
-            <CardItem cartitem={cartitem} />
-          </div>
-        ))}
-      </div>
+const CardItems = ({ shopitems }) => (
+  <div className="itemContainer ui container">
+    <div className="cards-container ui  five doubling stackable cards ">
+      {shopitems.map((shopitem) => (
+        <div
+          className="card-preview ui fluid card"
+          key={shopitem.id}
+          style={{ margin: "40px 10px" }}
+        >
+          <CardItem shopitem={shopitem} />
+        </div>
+      ))}
     </div>
-  );
-};
+  </div>
+);
+
 export default CardItems;

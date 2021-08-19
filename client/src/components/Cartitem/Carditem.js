@@ -1,29 +1,24 @@
-import React, { useContext } from "react";
+import React from "react";
 import { withRouter } from "react-router";
-import CartContext from "../../context/cart/CartContext";
+import { addItem, viewItem } from "../../reducer/actions/actions";
+import { connect } from "react-redux";
 
-const CardItem = ({ cartitem, history }) => {
-  const { imageURL, name, description, price } = cartitem;
-  const cartContext = useContext(CartContext);
-  const { viewItem, addItem } = cartContext;
+const CardItem = ({ shopitem, viewItem, history, addItem }) => {
+  const { imageURL, name, description, price } = shopitem;
 
-  const redirectClick = () => {
-    viewItem(cartitem);
+  const clickAdd = () => {
     history.push("/preview");
+    viewItem(shopitem);
   };
-  const addToCart = () => {
-    addItem(cartitem);
+  const clickButton = () => {
+    addItem(shopitem);
   };
+
   return (
     <div>
-      <div className="card-content content " onClick={redirectClick}>
+      <div className="card-content content " onClick={clickAdd}>
         <div className="card-image ui fluid image ">
-          <img
-            src={imageURL}
-            onClick={redirectClick}
-            style={{ objectFit: "cover" }}
-            alt=""
-          />
+          <img src={imageURL} style={{ objectFit: "cover" }} alt="" />
         </div>
         <div className="cartitemContent content">
           <div className="card-header header">{name}</div>
@@ -36,10 +31,9 @@ const CardItem = ({ cartitem, history }) => {
           </div>
         </div>
       </div>
-      <div className="cardItembutton extra content">
+      <div className="cardItembutton extra content" onClick={clickButton}>
         <button
           className="card-button ui button fluid blue"
-          onClick={addToCart}
           style={{ borderRadius: "10px" }}
         >
           <div className="content">Add to Cart</div>
@@ -48,4 +42,4 @@ const CardItem = ({ cartitem, history }) => {
     </div>
   );
 };
-export default withRouter(CardItem);
+export default withRouter(connect(null, { viewItem, addItem })(CardItem));

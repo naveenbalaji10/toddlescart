@@ -1,10 +1,14 @@
 import React from "react";
-import Carditems from "../components/cartItems/Carditems";
-
-export default function Home() {
+import { connect } from "react-redux";
+import CardItems from "../components/cartItems/Carditems";
+const Home = ({ shopitems }) => {
   return (
-    <div className="shop-home">
-      <Carditems />
+    <div>
+      <CardItems shopitems={shopitems} />
     </div>
   );
-}
+};
+const mapStateToProps = (state) => ({
+  shopitems: state.cart.shopItems,
+});
+export default connect(mapStateToProps)(Home);

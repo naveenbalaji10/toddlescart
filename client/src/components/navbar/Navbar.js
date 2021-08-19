@@ -3,7 +3,7 @@ import { Icon } from "semantic-ui-react";
 import { Menu } from "semantic-ui-react";
 import SearchBar from "../searchbar/SearchBar";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <React.Fragment>
       <div className="navbar">
@@ -32,3 +32,4 @@ export const Navbar = () => {
     </React.Fragment>
   );
 };
+export default Navbar;
